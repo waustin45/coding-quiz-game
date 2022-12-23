@@ -1,0 +1,106 @@
+:root {
+    --blue900: rgb(13, 27, 42);
+    --blue800: rgb(27, 38, 59);
+    --blue700: rgb(65, 90, 119);
+    --blue600: rgb(119, 141, 169);
+    --offWhite: rgb(224, 225, 221);
+    --boxShad: 0px 3px 20px -3px rgba(0,0,0,0.75);
+}   
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: var(--blue800);
+}
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--blue900);
+    box-shadow: var(--boxShad);
+}
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 5rem;
+}
+.page-link {
+    color: var(--offWhite);
+    text-decoration: none;
+    font-size: 1.5em
+}
+.timer {
+    color: var(--offWhite);
+    text-decoration: none;
+    font-size: 1.5em
+}
+main {
+    width: 50rem;
+    margin: 4rem auto;
+    border-radius: .5rem;
+    background-color: var(--blue700);
+    box-shadow: var(--boxShad);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.question-output {
+    margin-top: 1.5rem;
+    font-size: 1.4em;
+    color: var(--offWhite);
+}
+.answers-wrapper {
+    display: flex;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+button {
+    cursor: pointer;
+    background-color: var(--blue600);
+    border: none;
+    padding: .7rem;
+    border-radius: .125rem;
+    transition: .3s;
+    color: var(--offWhite);
+    font-size: 1.125em;
+}
+button:hover {
+    background-color: var(--blue700);
+    border: .5px solid var(--blue600);
+}
+.html-btn {
+    margin-bottom: 1.5rem;
+}
+.html-btn.hidden {
+    display: none;
+}
+.log-hs {
+    display: none;
+}
+.log-hs.active {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+h2 {
+    color: var(--offWhite);
+}
+p {
+    color: var(--offWhite);
+    padding: 0;
+    margin: 1rem 0;
+    font-size: 1.5em;
+}
+h1 {
+    color: var(--offWhite);
+    border-bottom: 2px solid var(--offWhite);
+}
