@@ -134,4 +134,7 @@ h1 {
     #quiz-btn {
         width: 100%;
     }
+    nav {
+        padding: 3rem 2rem;
+    }
 }
