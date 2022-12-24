@@ -6,13 +6,33 @@ const quizObject = [
     },
     {
         question:"What is used to make items line up as a column or row in flex-box?",
-        answers: [,"justify-direction","flex-direction", "align-items","grid"],
+        answers: ["justify-direction","flex-direction", "align-items","grid"],
         correct: "flex-direction",
     },
     {
         question:"What does NaN stand for?",
         answers: ["never a number", "not a nut", "neglected a number", "not a number"],
         correct: "not a number",
+    },
+    {
+        question:"In what element to you put your css file?",
+        answers: ["link", "script", "head", "style"],
+        correct: "link",
+    },
+    {
+        question:"What do you surround an array with?",
+        answers: ["<>", "{}", "[]", "||"],
+        correct: "[]",
+    },
+    {
+        question:"what is the last step in setting up a for loop?",
+        answers: ["let i = 0", "i++", "i > 0", "i + 2"],
+        correct: "i++",
+    },
+    {
+        question:"How many children elements can you have within a parent?",
+        answers: ["no limit", "twenty", "three", "sixteen"],
+        correct: "no limit",
     },
 
 ]
@@ -26,7 +46,7 @@ let timer = 100
 let question = -1
 const btnAnswer = document.querySelector('.btn-answer')
 const addScore = document.querySelector('.add-score-btn')
-const list = document.querySelector('.list')
+
 // answersOutput.innerHTML = answerMap
 btnAnswer.addEventListener('click', showQuestion)
 btnAnswer.addEventListener('click', setTime)
@@ -40,7 +60,7 @@ function setTime () {
     }, 1000)
     
 }
-
+questionOutput.textContent = "Start Quiz"
 function showQuestion () {
     btnAnswer.classList.add("hidden")
     question++
@@ -92,8 +112,8 @@ function addScoreCard () {
 
     
     if(localStorage.getItem('scores')) {
-         scores = localStorage.getItem('scores')
-        scoreArray = [scores]
+         scoreArray = JSON.parse(localStorage.getItem('scores'))
+        
         console.log("scores")
         console.log(scoreArray + "in if statement")
 
@@ -101,10 +121,10 @@ function addScoreCard () {
         scoreArray = []
     }
   scoreArray.push(`${promptCard} scored ${timer}`)
-  localStorage.setItem('scores', scoreArray)
+  localStorage.setItem('scores', JSON.stringify(scoreArray))
  console.log(scoreArray)
- 
+ location.reload()
 }
-// localStorage.getItme
+
  
- console.log(localStorage.getItem('scores'))
+ 

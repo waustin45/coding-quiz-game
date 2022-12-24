@@ -38,7 +38,8 @@ nav {
     font-size: 1.5em
 }
 main {
-    width: 50rem;
+    max-width: 50rem;
+    min-width: 75%;
     margin: 4rem auto;
     border-radius: .5rem;
     background-color: var(--blue700);
@@ -103,4 +104,34 @@ p {
 h1 {
     color: var(--offWhite);
     border-bottom: 2px solid var(--offWhite);
+}
+.list {
+    color: var(--offWhite);
+    font-size: 1.5em;
+}
+
+@media (max-width: 575px) {
+    main {
+        width: 85%;
+    }
+    .question-output {
+        margin-top: 1.5rem;
+        font-size: 1.1em;
+        color: var(--offWhite);
+        padding: 1rem;
+        line-height: 2rem;
+    }
+    .answers-wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        width: 75%;
+    }
+    #quiz-btn {
+        width: 100%;
+    }
 }
