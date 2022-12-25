@@ -61,6 +61,7 @@ function setTime () {
     
 }
 questionOutput.textContent = "Start Quiz"
+answersOutput.textContent = "Rules: Complete the quiz as quick as possible. Each incorrect answer takes 10 seconds off the timer. The time left will be your score!"
 function showQuestion () {
     btnAnswer.classList.add("hidden")
     question++
