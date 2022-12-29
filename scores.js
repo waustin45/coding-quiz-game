@@ -1,6 +1,10 @@
 const list = document.querySelector('.list')
- 
-
+ const clearBtn = document.querySelector('#clear-btn')
+ clearBtn.addEventListener("click", clear)
+function clear (){
+    localStorage.clear()
+    location.reload()
+}
 function showScores() {
 let scoresArr = [JSON.parse(localStorage.getItem('scores'))]
     

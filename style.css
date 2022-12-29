@@ -110,6 +110,37 @@ h1 {
     color: var(--offWhite);
     font-size: 1.5em;
 }
+#clear-btn {
+    margin-bottom: 1rem;
+}
+#light-dark-mode {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: 3rem;
+    height: 1.5rem;
+    padding: 0;
+    margin: 0;
+    border-radius: 3rem;
+}
+#circle {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255, 0.4);
+    transition: 700ms;
+}
+ .dark {
+    transform: translateX(0%);
+    background-image: url(./images/brightness2.png);
+    background-size: cover;
+    
+}
+ .light {
+    transform: translateX(100%);
+    background-image: url(./images/brightness.png);
+    background-size: cover;
+}
 
 @media (max-width: 575px) {
     main {

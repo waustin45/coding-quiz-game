@@ -15,7 +15,7 @@ const quizObject = [
         correct: "not a number",
     },
     {
-        question:"In what element to you put your css file?",
+        question:"In what element do you put your css file?",
         answers: ["link", "script", "head", "style"],
         correct: "link",
     },
@@ -46,7 +46,8 @@ let timer = 100
 let question = -1
 const btnAnswer = document.querySelector('.btn-answer')
 const addScore = document.querySelector('.add-score-btn')
-
+const lightBtn = document.querySelector('#light-dark-mode')
+const circle = document.querySelector('#circle')
 // answersOutput.innerHTML = answerMap
 btnAnswer.addEventListener('click', showQuestion)
 btnAnswer.addEventListener('click', setTime)
@@ -121,11 +122,25 @@ function addScoreCard () {
     } else {
         scoreArray = []
     }
-  scoreArray.push(`${promptCard} scored ${timer}`)
-  localStorage.setItem('scores', JSON.stringify(scoreArray))
+ scoreArray.push(`${promptCard} scored ${timer}`)
+ localStorage.setItem('scores', JSON.stringify(scoreArray))
  console.log(scoreArray)
  location.reload()
 }
-
+lightBtn.addEventListener("click", ()=>{
+    const body = document.querySelector('body')
+    const ifLight = circle.getAttribute("class")
+    console.log("function atleast works")
+    console.log(ifLight)
+    if (ifLight == "dark") {
+        circle.classList.remove("dark")
+        circle.classList.add("light")
+        body.style.backgroundColor = "white"
+    } else if ( ifLight == "light") {
+        circle.classList.remove("light")
+        circle.classList.add("dark")
+        body.style.backgroundColor = "rgb(27, 38, 59)"
+    }
+})
  
  
