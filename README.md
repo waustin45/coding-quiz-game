@@ -95,5 +95,8 @@ You are required to submit BOTH of the following for review:
 * The URL of the GitHub repository, with a unique name and a readme describing the project.
 
 ---
+## Link to Project
+
+https://waustin45.github.io/coding-quiz-game/index.html
 
 © 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
