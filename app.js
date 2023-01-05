@@ -36,25 +36,30 @@ const quizObject = [
     },
 
 ]
-
+//main HTML outputs
 const questionOutput = document.querySelector('.question-output')
 const answersOutput = document.querySelector('.answers-wrapper')
+//timer output and score variable
 const timeSpan =   document.querySelector('#timer-output')
+let timer = 100
+//highscore page log
 const logHs = document.querySelector('.log-hs')
 const scoreSpan = document.querySelector('.score-span')
-let timer = 100
-let question = -1
-const btnAnswer = document.querySelector('.btn-answer')
 const addScore = document.querySelector('.add-score-btn')
-const lightBtn = document.querySelector('#light-dark-mode')
-const circle = document.querySelector('#circle')
+// set to -1 so the if statement will fire when array is at index 0.
+let question = -1
+//start button at load
+const btnAnswer = document.querySelector('.btn-answer')
+// displays an element informing user if they are right or wrong
 const rightWrongDiv = document.querySelector('.wrong-right')
 const rightWrong = document.querySelector('#right-wrong-span')
+//input for typing in initials
 const inputField = document.querySelector('#score-input')
-// answersOutput.innerHTML = answerMap
+//event listeners for starting the game.
 btnAnswer.addEventListener('click', showQuestion)
 btnAnswer.addEventListener('click', setTime)
 function setTime () {
+    //timer for game.
    const interval = setInterval(()=> {
         timer--
         timeSpan.textContent = timer
@@ -68,6 +73,7 @@ questionOutput.textContent = "Start Quiz"
 answersOutput.textContent = "Rules: Complete the quiz as quick as possible. Each incorrect answer takes 10 seconds off the timer. The time left will be your score!"
 function showQuestion () {
     btnAnswer.classList.add("hidden")
+    //timer for the correct or wrong pop up when question is answered.
     const newTimer = setInterval(() => {
         let wrongTimer = 1
         wrongTimer--
@@ -78,7 +84,7 @@ function showQuestion () {
     }, 1000);
     question++
     if (question < quizObject.length) {
-         
+         //question variable increments each time button is clicked. question is used as index.
          questionOutput.innerHTML = quizObject[question].question
          const answerMap = quizObject[question].answers.map((info) => {
        return `<button id="quiz-btn" class="btn-answer" value="${info}" >${info}</button>`
@@ -98,7 +104,7 @@ function showQuestion () {
                     showQuestion()
                    
                 } else {
-                    // inject timing reduction code
+                    //incorrect answers subtract 10 seconds from timer. 
                     timer = timer - 10
                     rightWrongDiv.classList.add('active')
                     rightWrong.innerHTML = "Wrong!"
@@ -108,7 +114,7 @@ function showQuestion () {
                 
             })
     } else {
-        // prompts the user with a highscore screen. to add a highscore.
+        // prompts the user with a highscore screen to add a highscore.
         logHs.classList.add('active')
         questionOutput.innerHTML = ""
         answersOutput.innerHTML = ""
