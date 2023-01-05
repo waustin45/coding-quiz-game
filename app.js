@@ -48,6 +48,9 @@ const btnAnswer = document.querySelector('.btn-answer')
 const addScore = document.querySelector('.add-score-btn')
 const lightBtn = document.querySelector('#light-dark-mode')
 const circle = document.querySelector('#circle')
+const rightWrongDiv = document.querySelector('.wrong-right')
+const rightWrong = document.querySelector('#right-wrong-span')
+const inputField = document.querySelector('#score-input')
 // answersOutput.innerHTML = answerMap
 btnAnswer.addEventListener('click', showQuestion)
 btnAnswer.addEventListener('click', setTime)
@@ -55,7 +58,7 @@ function setTime () {
    const interval = setInterval(()=> {
         timer--
         timeSpan.textContent = timer
-        if (timer === 0 ) {
+        if (timer === 0 || question === quizObject.length ) {
         clearInterval(interval)
     }
     }, 1000)
@@ -65,6 +68,14 @@ questionOutput.textContent = "Start Quiz"
 answersOutput.textContent = "Rules: Complete the quiz as quick as possible. Each incorrect answer takes 10 seconds off the timer. The time left will be your score!"
 function showQuestion () {
     btnAnswer.classList.add("hidden")
+    const newTimer = setInterval(() => {
+        let wrongTimer = 1
+        wrongTimer--
+        if (wrongTimer === 0 ) {
+            rightWrongDiv.classList.remove('active') 
+            clearInterval(newTimer)
+        }
+    }, 1000);
     question++
     if (question < quizObject.length) {
          
@@ -82,10 +93,15 @@ function showQuestion () {
                 each.addEventListener("click", () => {
                     console.log(each.value)
                     if (each.value === quizObject[question].correct) {
+                        rightWrongDiv.classList.add('active')
+                        rightWrong.innerHTML = "Correct!"
                     showQuestion()
+                   
                 } else {
                     // inject timing reduction code
                     timer = timer - 10
+                    rightWrongDiv.classList.add('active')
+                    rightWrong.innerHTML = "Wrong!"
                     showQuestion()
                 }
                 })
@@ -99,6 +115,7 @@ function showQuestion () {
         answersOutput.style.margin = "0"
         questionOutput.style.margin = "0"
         scoreSpan.textContent = timer
+        
     } 
     
     
@@ -109,7 +126,7 @@ let scores;
 addScore.addEventListener("click", addScoreCard)
 function addScoreCard () {
    
- const promptCard =  prompt("Enter Your Initials")
+ const promptCard =  inputField.value
     console.log(promptCard)
 
     
@@ -125,22 +142,8 @@ function addScoreCard () {
  scoreArray.push(`${promptCard} scored ${timer}`)
  localStorage.setItem('scores', JSON.stringify(scoreArray))
  console.log(scoreArray)
- location.reload()
+ location.href = "./highscore.html"
 }
-lightBtn.addEventListener("click", ()=>{
-    const body = document.querySelector('body')
-    const ifLight = circle.getAttribute("class")
-    console.log("function atleast works")
-    console.log(ifLight)
-    if (ifLight == "dark") {
-        circle.classList.remove("dark")
-        circle.classList.add("light")
-        body.style.backgroundColor = "white"
-    } else if ( ifLight == "light") {
-        circle.classList.remove("light")
-        circle.classList.add("dark")
-        body.style.backgroundColor = "rgb(27, 38, 59)"
-    }
-})
+
  
  

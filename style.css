@@ -4,21 +4,23 @@
     --blue700: rgb(65, 90, 119);
     --blue600: rgb(119, 141, 169);
     --offWhite: rgb(224, 225, 221);
+    --purple: purple;
+    --black: black;
     --boxShad: 0px 3px 20px -3px rgba(0,0,0,0.75);
 }   
 
 body {
     padding: 0;
     margin: 0;
-    background-color: var(--blue800);
+    
 }
 header {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--blue900);
-    box-shadow: var(--boxShad);
+    
+   
 }
 nav {
     width: 100%;
@@ -26,14 +28,15 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 3rem 5rem;
+    
 }
 .page-link {
-    color: var(--offWhite);
+    color: var(--purple);
     text-decoration: none;
     font-size: 1.5em
 }
 .timer {
-    color: var(--offWhite);
+    color: var(--purple);
     text-decoration: none;
     font-size: 1.5em
 }
@@ -42,8 +45,6 @@ main {
     min-width: 75%;
     margin: 4rem auto;
     border-radius: .5rem;
-    background-color: var(--blue700);
-    box-shadow: var(--boxShad);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -51,31 +52,34 @@ main {
 }
 .question-output {
     margin-top: 1.5rem;
-    font-size: 1.4em;
-    color: var(--offWhite);
+    font-size: 2em;
+    font-weight: bolder;
+    color: var(--purple);
 }
 .answers-wrapper {
     display: flex;
+    flex-direction: column;
     margin-top: 2rem;
     margin-bottom: 2rem;
     gap: 1rem;
     justify-content: center;
-    align-items: center;
-    color: var(--offWhite);
+    align-items: flex-start;
+    color: var(--purple);
+    font-size: 1.5em;
 }
 button {
     cursor: pointer;
-    background-color: var(--blue600);
+    background-color: var(--purple);
     border: none;
     padding: .7rem;
     border-radius: .125rem;
     transition: .3s;
-    color: var(--offWhite);
+    color: white;
     font-size: 1.125em;
 }
 button:hover {
-    background-color: var(--blue700);
-    border: .5px solid var(--blue600);
+    background-color: var(--purple);
+    opacity: .8;
 }
 .html-btn {
     margin-bottom: 1.5rem;
@@ -86,12 +90,19 @@ button:hover {
 .log-hs {
     display: none;
 }
+.log-hs h2 {
+    color: var(--purple);
+}
+.log-hs p {
+     color: var(--purple);
+}
 .log-hs.active {
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
     justify-content: center;
     align-items: center;
+   
 }
 h2 {
     color: var(--offWhite);
@@ -107,8 +118,11 @@ h1 {
     border-bottom: 2px solid var(--offWhite);
 }
 .list {
-    color: var(--offWhite);
+    color: var(--purple);
     font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 #clear-btn {
     margin-bottom: 1rem;
@@ -141,7 +155,37 @@ h1 {
     background-image: url(./images/brightness.png);
     background-size: cover;
 }
-
+.wrong-right {
+    width: 50%;
+    border-top: 1px solid grey;
+    padding: 1rem 0;
+    display: none;
+}
+.wrong-right.active {
+    display: flex;
+}
+.wrong-right span {
+    font-size:2em;
+    color: grey;
+}
+.add-score-btn {
+    margin-top: 1rem;
+}
+#score-input {
+    padding: 1rem;
+}
+.input-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.input-div span {
+    font-size: 1.75em;
+}
+.highscore-page {
+    color: var(--purple);
+}
 @media (max-width: 575px) {
     main {
         width: 85%;
